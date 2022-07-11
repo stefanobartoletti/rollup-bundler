@@ -1,5 +1,6 @@
 // --- Import plugins ---
 
+import del from 'rollup-plugin-delete'
 import nodeResolve from '@rollup/plugin-node-resolve'; 
 import commonjs from '@rollup/plugin-commonjs';
 import { babel } from '@rollup/plugin-babel';
@@ -19,6 +20,7 @@ export default {
     assetFileNames: "[name][extname]"
   },
   plugins: [
+    del({ targets: './dist' }),
     nodeResolve(),
     commonjs(),
     babel({ babelHelpers: 'bundled' }),
