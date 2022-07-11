@@ -4,9 +4,10 @@
   "description": "Rollup based asset bundler",
   "author": "Stefano Bartoletti (https://www.stefanobartoletti.it)",
   "scripts": {
-    "dev": "rollup -c",
-    "build": "NODE_ENV=production rollup -c",
+    "dev": "yarn clean && rollup -c",
+    "build": "yarn clean && NODE_ENV=production rollup -c",
     "watch": "rollup -c -w",
+    "clean": "del ./dist",
     "lint:js": "eslint --ext js,mjs --fix --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{scss,css}\" --fix --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style"
@@ -17,6 +18,7 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "del-cli": "^4.0.1",
     "rollup": "^2.76.0",
     "rollup-plugin-terser": "^7.0.2"
   }
