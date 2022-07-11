@@ -1,7 +1,7 @@
 // --- Import Javascript ---
 
-import './src/js/scripts'
+import './src/js/scripts';
 
 // --- Import CSS ---
 
-import './src/sass/style.scss'
+import './src/sass/style.scss';
