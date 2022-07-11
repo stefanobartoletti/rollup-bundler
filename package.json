@@ -7,7 +7,7 @@
     "dev": "rollup -c",
     "build": "NODE_ENV=production rollup -c",
     "watch": "rollup -c -w",
-    "lint:js": "eslint --ext js,mjs --fix --ignore-path .gitignore .",
+    "lint:js": "eslint --ext js --fix --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{scss,css}\" --fix --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style"
   },
@@ -30,6 +30,9 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-styles": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^4.0.0"
   }
 }
