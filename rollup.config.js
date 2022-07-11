@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import styles from "rollup-plugin-styles";
+import html from "@rollup/plugin-html";
 
 // --- Variables ---
 
@@ -17,6 +18,7 @@ export default {
   input: 'main.js',
   output: {
     file: 'dist/scripts.js',
+    format: 'iife',
     assetFileNames: "[name][extname]"
   },
   plugins: [
@@ -28,6 +30,9 @@ export default {
     styles({
       mode: ["extract", "scripts.css"],
       minimize: production ? true : false,
-    })
+    }),
+    html({
+      publicPath: ''
+    }),
   ] 
 };
