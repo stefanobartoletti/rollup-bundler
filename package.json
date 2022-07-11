@@ -1,0 +1,17 @@
+{
+  "name": "rollup-bundler",
+  "version": "0.0.1",
+  "description": "Rollup based asset bundler",
+  "author": "Stefano Bartoletti (https://www.stefanobartoletti.it)",
+  "scripts": {
+    "dev": "rollup -c",
+    "build": "rollup -c --environment BUILD:production",
+    "watch": "rollup -c -w",
+    "lint:js": "eslint --ext js,mjs --fix --ignore-path .gitignore .",
+    "lint:style": "stylelint \"**/*.{scss,css}\" --fix --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:style"
+  },
+  "devDependencies": {
+    "rollup": "^2.76.0"
+  }
+}
