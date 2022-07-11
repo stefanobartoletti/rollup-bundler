@@ -5,16 +5,19 @@
   "author": "Stefano Bartoletti (https://www.stefanobartoletti.it)",
   "scripts": {
     "dev": "rollup -c",
-    "build": "rollup -c --environment BUILD:production",
+    "build": "NODE_ENV=production rollup -c",
     "watch": "rollup -c -w",
     "lint:js": "eslint --ext js,mjs --fix --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{scss,css}\" --fix --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "rollup": "^2.76.0"
+    "rollup": "^2.76.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
