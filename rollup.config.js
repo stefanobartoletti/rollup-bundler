@@ -28,7 +28,7 @@ export default {
     babel({ babelHelpers: 'bundled' }),
     production && terser(),
     styles({
-      mode: ['extract', 'scripts.css'],
+      mode: ['extract', 'style.css'],
       minimize: !!production
     }),
     html({
