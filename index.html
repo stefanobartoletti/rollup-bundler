@@ -1,12 +1,59 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Rollup Bundle</title>
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-    <script src="scripts.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rollup Bundle</title>
+
+  <style>
+    html {
+      font-size: 18px;
+    }
+
+    code {
+      display: flex;
+      flex-direction: column;
+      background-color: #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .title {
+      font-family: sans-serif;
+      font-size: 1.5rem;
+    }
+  </style>
+
+  <!-- Custom CSS -->
+  <link href="dist/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <p class="title">Custom CSS</p>
+  <code id="css">
+    <span id="custom-css">&lt;link&nbsp;rel="stylesheet"&nbsp;href=""&gt;</span>
+  </code>
+
+  <p class="title">Custom JS</p>
+  <code class="js">
+    <span id="custom-js">&lt;script&nbsp;src=""&gt;&lt;script&gt;</span>
+  </code>
+
+  <!-- Custom JS -->
+  <script src="dist/scripts.js"></script>
+
+  <script>
+    const customCSS = document.getElementById('custom-css')
+    const customJS = document.getElementById('custom-js')
+    const customCSSfile = document.querySelector('[href="dist/style.css"]').href;
+    const customJSfile = document.querySelector('[src="dist/scripts.js"]').src;
+
+    customCSS.innerHTML = customCSS.innerHTML.replace('href=""', 'href="' + customCSSfile + '"');
+    customJS.innerHTML = customJS.innerHTML.replace('src=""', 'src="' + customJSfile + '"');
+  </script>
+</body>
+
 </html>
