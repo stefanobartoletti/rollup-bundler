@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import styles from 'rollup-plugin-styles';
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
 
 // --- Variables ---
 
@@ -14,27 +14,42 @@ const production = (process.env.NODE_ENV === 'production');
 
 // --- Rollup configuration ---
 
-export default {
-  input: 'main.js',
-  output: {
-    file: 'dist/scripts.js',
-    format: 'iife',
-    assetFileNames: '[name][extname]'
+export default [
+  {
+    input: 'main.js',
+    output: {
+      file: 'dist/scripts.js',
+      format: 'iife',
+      assetFileNames: '[name][extname]'
+    },
+    plugins: [
+      del({ targets: './dist' }),
+      nodeResolve(),
+      commonjs(),
+      babel({ babelHelpers: 'bundled' }),
+      production && terser(),
+      styles({
+        mode: ['extract', 'style.css'],
+        minimize: !!production
+      }),
+      copy({
+        targets: [
+          { src: './static/**/*', dest: './dist' }
+        ]
+      })
+    ]
   },
-  plugins: [
-    del({ targets: './dist' }),
-    nodeResolve(),
-    commonjs(),
-    babel({ babelHelpers: 'bundled' }),
-    production && terser(),
-    styles({
-      mode: ['extract', 'style.css'],
-      minimize: !!production
-    }),
-    copy({
-      targets: [
-        { src: './static/**/*', dest: './dist' }
-      ]
-    })
-  ]
-};
+  {
+    input: 'bundle.js',
+    output: {
+      file: 'dist/bundle.js',
+      format: 'iife'
+    },
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      babel({ babelHelpers: 'bundled' }),
+      production && terser()
+    ]
+  }
+];
