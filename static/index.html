@@ -40,19 +40,24 @@
 
   <p class="title">Custom JS</p>
   <code class="js">
+    <span id="bundle-js">&lt;script&nbsp;src=""&gt;&lt;script&gt;</span>
     <span id="custom-js">&lt;script&nbsp;src=""&gt;&lt;script&gt;</span>
   </code>
 
   <!-- Custom JS -->
+  <script src="bundle.js"></script>
   <script src="scripts.js"></script>
 
   <script>
     const customCSS = document.getElementById('custom-css')
+    const bundleJS = document.getElementById('bundle-js')
     const customJS = document.getElementById('custom-js')
     const customCSSfile = document.querySelector('[href="style.css"]').href;
+    const bundleJSfile = document.querySelector('[src="bundle.js"]').src;
     const customJSfile = document.querySelector('[src="scripts.js"]').src;
 
     customCSS.innerHTML = customCSS.innerHTML.replace('href=""', 'href="' + customCSSfile + '"');
+    bundleJS.innerHTML = bundleJS.innerHTML.replace('src=""', 'src="' + bundleJSfile + '"');
     customJS.innerHTML = customJS.innerHTML.replace('src=""', 'src="' + customJSfile + '"');
   </script>
 </body>
