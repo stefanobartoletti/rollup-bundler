@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import styles from 'rollup-plugin-styles';
-import html from '@rollup/plugin-html';
+import copy from 'rollup-plugin-copy'
 
 // --- Variables ---
 
@@ -31,8 +31,10 @@ export default {
       mode: ['extract', 'style.css'],
       minimize: !!production
     }),
-    html({
-      publicPath: ''
+    copy({
+      targets: [
+        { src: './static/**/*', dest: './dist' }
+      ]
     })
   ]
 };

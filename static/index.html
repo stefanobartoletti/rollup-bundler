@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rollup Bundle</title>
 
   <style>
@@ -27,7 +28,7 @@
   </style>
 
   <!-- Custom CSS -->
-  <link href="dist/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -43,13 +44,13 @@
   </code>
 
   <!-- Custom JS -->
-  <script src="dist/scripts.js"></script>
+  <script src="scripts.js"></script>
 
   <script>
     const customCSS = document.getElementById('custom-css')
     const customJS = document.getElementById('custom-js')
-    const customCSSfile = document.querySelector('[href="dist/style.css"]').href;
-    const customJSfile = document.querySelector('[src="dist/scripts.js"]').src;
+    const customCSSfile = document.querySelector('[href="style.css"]').href;
+    const customJSfile = document.querySelector('[src="scripts.js"]').src;
 
     customCSS.innerHTML = customCSS.innerHTML.replace('href=""', 'href="' + customCSSfile + '"');
     customJS.innerHTML = customJS.innerHTML.replace('src=""', 'src="' + customJSfile + '"');
