@@ -8,6 +8,7 @@ module.exports = {
     'standard'
   ],
   rules: {
+    'no-undef': ['warn'],
     semi: ['error', 'always']
   }
 };
