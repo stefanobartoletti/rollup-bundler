@@ -1,3 +1,18 @@
+// --- Colors ---
+
+$primary: #131635;
+$secondary: #757fe8;
+$light: #f6f8ff;
+$dark: #333;
+
+// --- Typography ---
+
+$font-fallback: system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-body: $font-fallback;
+$font-headings: $font-fallback;
+
+// --- Custom Styles ---
+
 ::selection {
   color: #fff;
   background-color: #ddd;
@@ -5,19 +20,19 @@
 
 .site-header {
   transition: all 0.75s;
-}
 
-.site-header.header-scrolled {
-  padding: 0.5rem 0;
-}
+  .header-logo {
+    transition: all 0.75s;
+  }
 
-.site-header .header-logo {
-  transition: all 0.75s;
-}
+  &.header-scrolled {
+    padding: 0.5rem 0;
 
-.site-header.header-scrolled .header-logo {
-  height: 40px;
-  transform: rotate(180deg);
+    .header-logo {
+      height: 40px;
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .section-2,

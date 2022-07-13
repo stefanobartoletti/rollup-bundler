@@ -4,5 +4,7 @@ module.exports = {
     'stylelint-config-recess-order'
   ],
   plugins: [],
-  rules: {}
+  rules: {
+    'max-line-length': null
+  }
 };
