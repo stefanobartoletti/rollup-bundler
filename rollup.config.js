@@ -14,42 +14,27 @@ const production = (process.env.NODE_ENV === 'production');
 
 // --- Rollup configuration ---
 
-export default [
-  {
-    input: 'main.js',
-    output: {
-      file: 'dist/scripts.js',
-      format: 'iife',
-      assetFileNames: '[name][extname]'
-    },
-    plugins: [
-      del({ targets: './dist' }),
-      nodeResolve(),
-      commonjs(),
-      babel({ babelHelpers: 'bundled' }),
-      production && terser(),
-      styles({
-        mode: ['extract', 'style.css'],
-        minimize: !!production
-      }),
-      copy({
-        targets: [
-          { src: './static/**/*', dest: './dist' }
-        ]
-      })
-    ]
+export default {
+  input: 'main.js',
+  output: {
+    file: 'dist/scripts.js',
+    format: 'iife',
+    assetFileNames: '[name][extname]'
   },
-  {
-    input: 'bundle.js',
-    output: {
-      file: 'dist/bundle.js',
-      format: 'iife'
-    },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      babel({ babelHelpers: 'bundled' }),
-      production && terser()
-    ]
-  }
-];
+  plugins: [
+    del({ targets: './dist' }),
+    nodeResolve(),
+    commonjs(),
+    babel({ babelHelpers: 'bundled' }),
+    production && terser(),
+    styles({
+      mode: ['extract', 'style.css'],
+      minimize: !!production
+    }),
+    copy({
+      targets: [
+        { src: './static/**/*', dest: './dist' }
+      ]
+    })
+  ]
+};

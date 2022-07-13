@@ -1,3 +1,11 @@
+
+// --- GSAP import & init ---
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const html = document.querySelector('html');
 const isMobile = window.innerWidth < 768;
 
