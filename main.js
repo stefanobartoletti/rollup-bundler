@@ -1,6 +1,6 @@
 // --- Import Javascript ---
 
-import './src/js/scripts';
+import './src/js/**/*';
 
 // --- Import CSS ---
 

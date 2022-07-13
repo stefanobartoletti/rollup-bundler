@@ -7,6 +7,7 @@ import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import styles from 'rollup-plugin-styles';
 import copy from 'rollup-plugin-copy';
+import globImport from 'rollup-plugin-glob-import';
 
 // --- Variables ---
 
@@ -35,6 +36,7 @@ export default {
       targets: [
         { src: './static/**/*', dest: './dist' }
       ]
-    })
+    }),
+    globImport()
   ]
 };
