@@ -12,6 +12,7 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "gsap": "^3.10.4"
   },
   "devDependencies": {
